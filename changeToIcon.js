@@ -10,6 +10,16 @@ function changeToIcon(category) {
       return 'fas fa-utensils'
     case '其他':
       return 'fas fa-pen'
+    case 'house':
+      return '家居物業'
+    case 'transportation':
+      return '交通出行'
+    case 'entertainment':
+      return '休閒娛樂'
+    case 'food':
+      return '餐飲食品'
+    case 'other':
+      return '其他'
   }
 }
 

@@ -16,36 +16,31 @@ db.once('open', () => {
       name: '午餐',
       category: '餐飲食品',
       date: '2019/4/23',
-      amount: '60',
-      icon: 'fas fa-utensils'
+      amount: '60'
     },
     {
       name: '晚餐',
       category: '餐飲食品',
       date: '2019/4/23',
-      amount: '60',
-      icon: 'fas fa-utensils'
+      amount: '60'
     },
     {
       name: '捷運',
       category: '交通出行',
       date: '2019/4/23',
-      amount: '120',
-      icon: 'fas fa-shuttle-van'
+      amount: '120'
     },
     {
       name: '電影：驚奇隊長',
       category: '休閒娛樂',
       date: '2019/4/23',
-      amount: '220',
-      icon: 'fas fa-grin-beam'
+      amount: '220'
     },
     {
       name: '租金',
       category: '家居物業',
       date: '2019/4/23',
-      amount: '25000',
-      icon: 'fas fa-home'
+      amount: '25000'
     })
   console.log('recordSeeder done!')
 })

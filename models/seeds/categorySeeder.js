@@ -12,11 +12,26 @@ db.on('error', () => {
 db.once('open', () => {
   console.log('mongodb connected!')
   Category.create(
-    { category: '家居物業' },
-    { category: '交通出行' },
-    { category: '休閒娛樂' },
-    { category: '餐飲食品' },
-    { category: '其他' }
+    {
+      category: '家居物業',
+      category_en: 'house'
+    },
+    {
+      category: '交通出行',
+      category_en: 'transportation'
+    },
+    {
+      category: '休閒娛樂',
+      category_en: 'entertainment'
+    },
+    {
+      category: '餐飲食品',
+      category_en: 'food'
+    },
+    {
+      category: '其他',
+      category_en: 'other'
+    }
   )
   console.log('categoyrSeeder done!')
 

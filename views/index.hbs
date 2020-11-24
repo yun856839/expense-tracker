@@ -1,3 +1,16 @@
+<div class="dropdown">
+  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
+    類別 {{#if currentCotegory}} : {{currentCotegory}} {{/if}}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/">全部</a>
+    {{#each categories}}
+    <a class="dropdown-item" href="/categories/{{this.category_en}}">{{this.category}}</a>
+    {{/each}}
+  </div>
+</div>
+
 <h1>Total Amount: {{ totalAmount }}</h1>
 
 <ul>

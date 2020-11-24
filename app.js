@@ -26,9 +26,14 @@ db.once('open', () => {
 // ------------- mongodb 設定 -------------
 
 app.engine('hbs', exphbs({
-  defaultLayout: 'main', extname: '.hbs', runtimeOptions: {
+  defaultLayout: 'main',
+  extname: '.hbs',
+  runtimeOptions: {
     allowProtoPropertiesByDefault: true,
     allowProtoMethodsByDefault: true
+  },
+  helpers: {
+    equal: function (a, b) { return (a === b) }
   }
 }))
 app.set('view engine', 'hbs')
@@ -45,7 +50,10 @@ app.get('/', (req, res) => {
         records[i].category = changeToIcon(records[i].category)
         totalAmount += records[i].amount
       }
-      res.render('index', { records, totalAmount })
+      Category.find()
+        .lean()
+        .then(categories => res.render('index', { records, categories, totalAmount }))
+        .catch(err => console.error(err))
     })
     .catch(err => console.error(err))
 })
@@ -58,12 +66,12 @@ app.get('/records/new', (req, res) => {
 })
 
 app.post('/records', (req, res) => {
-  console.log(req.body)
-  const { name, date, category, amount, icon } = req.body
+  // console.log(req.body)
+  const { name, date, category, amount } = req.body
   Record.find()
     .lean()
     .then(records => {
-      return Record.create({ name, date, category, amount, icon })
+      return Record.create({ name, date, category, amount })
         .then(() => res.redirect('/'))
         .catch(err => console.log(err))
     })
@@ -74,7 +82,13 @@ app.get('/records/:id/edit', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .lean()
-    .then(record => res.render('edit', { record }))
+    .then(record => {
+      const currentCategory = record.category
+      Category.find()
+        .lean()
+        .then(categories => res.render('edit', { record, categories, currentCategory }))
+        .catch(err => console.log(err))
+    })
     .catch(err => console.log(err))
 })
 
@@ -97,6 +111,28 @@ app.post('/records/:id/delete', (req, res) => {
     .then(record => record.remove())
     .then(() => res.redirect('/'))
     .catch(err => console.log(err))
+})
+
+// 分類
+app.get('/categories/:currentCotegory', (req, res) => {
+  const currentCotegory = changeToIcon(req.params.currentCotegory)
+  Record.find()
+    .lean()
+    .then(records => {
+      return records.filter(record => record.category === currentCotegory)
+    })
+    .then(records => {
+      let totalAmount = 0
+      for (let i in records) {
+        records[i].category = changeToIcon(records[i].category)
+        totalAmount += records[i].amount
+      }
+      Category.find()
+        .lean()
+        .then(categories => res.render('index', { records, categories, totalAmount, currentCotegory }))
+        .catch(err => console.error(err))
+    })
+    .catch(err => console.error(err))
 })
 
 app.listen(PORT, () => {

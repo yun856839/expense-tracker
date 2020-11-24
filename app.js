@@ -1,6 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
+const bodyParser = require('body-parser')
+
+const Record = require('./models/record')
 
 const app = express()
 const PORT = 3000
@@ -23,8 +26,30 @@ db.once('open', () => {
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
+app.use(bodyParser.urlencoded({ extended: true }))
+
 app.get('/', (req, res) => {
-  res.render('index')
+  Record.find()
+    .lean()
+    .then(records => res.render('index', { records }))
+    .catch(err => console.error(err))
+})
+
+// 新增
+app.get('/records/new', (req, res) => {
+  return res.render('new')
+})
+
+app.post('/records', (req, res) => {
+  console.log(req.body)
+  const { name, date, category, amount, icon } = req.body
+  Record.find()
+    .lean()
+    .then(records => {
+      return Record.create({ name, date, category, amount, icon })
+        .then(() => res.redirect('/'))
+        .catch(err => console.log(err))
+    })
 })
 
 app.listen(PORT, () => {

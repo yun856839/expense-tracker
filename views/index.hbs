@@ -3,7 +3,7 @@
 <ul>
   {{#each records}}
   <li>
-    <div class="{{ this.icon }}"></div>{{ this.name }}{{ this.date }}{{ this.amount }}
+    <div class="{{ this.category }}"></div>{{ this.name }}{{ this.date }}{{ this.amount }}
   </li>
 
   <a href="./records/{{ this._id }}/edit">edit</a>

@@ -47,5 +47,5 @@ db.once('open', () => {
       amount: '25000',
       icon: 'fas fa-home'
     })
-  console.log('done')
+  console.log('recordSeeder done!')
 })

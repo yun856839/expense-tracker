@@ -4,6 +4,8 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 
 const Record = require('./models/record')
+const Category = require('./models/category')
+const changeToIcon = require('../expense-tracker/changeToIcon')
 
 const app = express()
 const PORT = 3000
@@ -23,7 +25,12 @@ db.once('open', () => {
 })
 // ------------- mongodb 設定 -------------
 
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.engine('hbs', exphbs({
+  defaultLayout: 'main', extname: '.hbs', runtimeOptions: {
+    allowProtoPropertiesByDefault: true,
+    allowProtoMethodsByDefault: true
+  }
+}))
 app.set('view engine', 'hbs')
 
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -34,8 +41,10 @@ app.get('/', (req, res) => {
     .lean()
     .then(records => {
       let totalAmount = 0
-      for (let i in records)
+      for (let i in records) {
+        records[i].category = changeToIcon(records[i].category)
         totalAmount += records[i].amount
+      }
       res.render('index', { records, totalAmount })
     })
     .catch(err => console.error(err))
@@ -43,7 +52,9 @@ app.get('/', (req, res) => {
 
 // 新增
 app.get('/records/new', (req, res) => {
-  return res.render('new')
+  Category.find()
+    .then(categories => res.render('new', { categories }))
+    .catch(err => console.log(err))
 })
 
 app.post('/records', (req, res) => {

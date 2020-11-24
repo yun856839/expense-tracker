@@ -1,8 +1,13 @@
 <form action="/records" method="POST">
   <input type="text" placeholder="name" name="name">
   <input type="text" placeholder="date" name="date">
-  <input type="text" placeholder="category" name="category">
   <input type="text" placeholder="amount" name="amount">
-  <input type="text" placeholder="icon" name="icon">
+
+  <select name="category">
+    {{#each categories}}
+    <option value="{{this.category}}">{{this.category}}</option>
+    {{/each}}
+  </select>
+
   <button type="submit">Create</button>
 </form>

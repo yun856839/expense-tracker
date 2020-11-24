@@ -28,10 +28,16 @@ app.set('view engine', 'hbs')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
+// 首頁
 app.get('/', (req, res) => {
   Record.find()
     .lean()
-    .then(records => res.render('index', { records }))
+    .then(records => {
+      let totalAmount = 0
+      for (let i in records)
+        totalAmount += records[i].amount
+      res.render('index', { records, totalAmount })
+    })
     .catch(err => console.error(err))
 })
 

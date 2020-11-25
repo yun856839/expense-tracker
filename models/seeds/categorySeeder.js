@@ -23,6 +23,7 @@ db.once('open', () => {
       category: '其他',
       category_en: 'other'
     }
-  )
-  console.log('categoyrSeeder done!')
+  ).then(() => console.log('categoyrSeeder done!'))
+    .then(() => db.close())
+    .then(() => console.log('Close categoyrSeeder!'))
 })

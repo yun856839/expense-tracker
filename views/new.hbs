@@ -1,13 +1,60 @@
-<form action="/records" method="POST">
-  <input type="text" placeholder="name" name="name">
-  <input type="text" placeholder="date" name="date">
-  <input type="text" placeholder="amount" name="amount">
+<div class="container">
+  <div class="row text-center justify-content-center">
+    <form class="col-6 mt-3" action="/records" method="POST">
 
-  <select name="category">
-    {{#each categories}}
-    <option value="{{this.category}}">{{this.category}}</option>
-    {{/each}}
-  </select>
+      <div class="one row d-flex mb-3">
+        <div class="">
+          <span class="">*必填欄位</span>
+        </div>
 
-  <button type="submit">Create</button>
-</form>
+        <div class="one col-auto">
+          <h4 class="">請輸入你的支出</h4>
+        </div>
+
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">名稱*</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" name="name" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default" required>
+        <div class="invalid-feedback">
+
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">日期*</span>
+        </div>
+        <input type="date" class="form-control" placeholder="" name="date" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">類別*</span>
+        </div>
+
+        <select name="category">
+          {{#each categories}}
+          <option value="{{this.category}}">{{this.category}}</option>
+          {{/each}}
+        </select>
+
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">金額*</span>
+        </div>
+        <input type="number" class="form-control" placeholder="" name="amount" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <button class="btn btn-success mb-3" type="submit">新增支出</button>
+
+    </form>
+  </div>
+</div>

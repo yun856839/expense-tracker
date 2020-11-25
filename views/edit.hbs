@@ -1,16 +1,61 @@
-<form action="/records/{{ record._id }}/edit" method="POST">
-  <input type="text" placeholder="name" name="name" value="{{ record.name }}">
-  <input type="text" placeholder="date" name="date" value="{{ record.date }}">
+<div class="container">
+  <div class="row text-center justify-content-center">
+    <form class="col-6 mt-3" action="/records/{{ record._id }}/edit" method="POST">
 
-  <select name="category">
-    {{#each categories}}
-    <option value="{{ this.category }}" {{#if (equal this.category ../currentCategory)}}selected{{/if}}>
-      {{ this.category }}</option>
-    {{/each}}
-  </select>
+      <div class="one row d-flex mb-3">
+        <div class="">
+          <span class="">*必填欄位</span>
+        </div>
 
-  <input type="text" placeholder="amount" name="amount" value="{{ record.amount }}">
+        <div class="one col-auto">
+          <h4 class="">請修改你的支出</h4>
+        </div>
 
-  <button type="submit">Save</button>
-  <a href="/">Back</a>
-</form>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">名稱*</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" name="name" value="{{ record.name }}"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+        <div class="invalid-feedback">
+
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">日期*</span>
+        </div>
+        <input type="date" class="form-control" placeholder="" name="date" value="{{ record.date }}"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">類別*</span>
+        </div>
+
+        <select name="category">
+          {{#each categories}}
+          <option value="{{ this.category }}" {{#if (equal this.category ../currentCategory)}}selected{{/if}}>
+            {{ this.category }}</option>
+          {{/each}}
+        </select>
+
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">金額*</span>
+        </div>
+        <input type="number" class="form-control" placeholder="" name="amount" value="{{ record.amount }}"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <button class="btn btn-success mb-3" type="submit">送出</button>
+
+    </form>
+  </div>
+</div>

@@ -8,6 +8,8 @@ const changeToIcon = require('../../public/javascripts/changeToIcon')
 // 新增
 router.get('/new', (req, res) => {
   Category.find()
+    .lean()
+    .sort({ _id: 'asc' })
     .then(categories => res.render('new', { categories }))
     .catch(err => console.log(err))
 })
@@ -33,6 +35,7 @@ router.get('/:id/edit', (req, res) => {
       const currentCategory = record.category
       Category.find()
         .lean()
+        .sort({ _id: 'asc' })
         .then(categories => res.render('edit', { record, categories, currentCategory }))
         .catch(err => console.log(err))
     })

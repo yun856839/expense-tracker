@@ -10,6 +10,7 @@ router.get('/:currentCotegory', (req, res) => {
   const currentCotegory = changeToIcon(req.params.currentCotegory)
   Record.find()
     .lean()
+    .sort({ date: 'desc' })
     .then(records => {
       return records.filter(record => record.category === currentCotegory)
     })
@@ -21,6 +22,7 @@ router.get('/:currentCotegory', (req, res) => {
       }
       Category.find()
         .lean()
+        .sort({ _id: 'asc' })
         .then(categories => res.render('index', { records, categories, totalAmount, currentCotegory }))
         .catch(err => console.error(err))
     })

@@ -12,10 +12,6 @@ const PORT = 3000
 app.engine('hbs', exphbs({
   defaultLayout: 'main',
   extname: '.hbs',
-  runtimeOptions: {
-    allowProtoPropertiesByDefault: true,
-    allowProtoMethodsByDefault: true
-  },
   helpers: {
     equal: function (a, b) { return (a === b) }
   }

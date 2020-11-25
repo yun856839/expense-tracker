@@ -23,7 +23,7 @@
       <div class="row">
         <div class="col-auto mr-auto">
           <div class="d-flex">
-            <i class="py-1 {{ this.category }}" style="vertical-align: middle;"></i>
+            <i class="my-2 {{ this.category }}" style="vertical-align: middle;min-width: 20px;"></i>
             <div class="d-flex flex-column">
               <div class="col-12">
                 <h5 style="display: inline; vertical-align: middle;">
@@ -45,9 +45,9 @@
 
           <a class="btn btn-info" href="./records/{{ this._id }}/edit">修改</a>
 
-          <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;"
-            style="display: inline;">
-            <button class="btn btn-danger" type="submit">delete</button>
+          <form action="./records/{{ this._id }}?_method=DELETE" method="POST" onsubmit="return confirm('確定刪除嗎')"
+            style="display: inline;" style="display: inline;">
+            <button class="btn btn-danger" type="submit">刪除</button>
           </form>
         </div>
       </div>

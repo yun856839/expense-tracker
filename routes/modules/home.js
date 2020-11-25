@@ -9,6 +9,7 @@ const changeToIcon = require('../../public/javascripts/changeToIcon')
 router.get('/', (req, res) => {
   Record.find()
     .lean()
+    .sort({ date: 'desc' })
     .then(records => {
       let totalAmount = 0
       for (let i in records) {
@@ -17,6 +18,7 @@ router.get('/', (req, res) => {
       }
       Category.find()
         .lean()
+        .sort({ _id: 'asc' })
         .then(categories => res.render('index', { records, categories, totalAmount }))
         .catch(err => console.error(err))
     })

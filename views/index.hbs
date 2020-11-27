@@ -43,7 +43,7 @@
             {{ this.amount }}
           </h5>
 
-          <a class="btn btn-info" href="./records/{{ this._id }}/edit">修改</a>
+          <a class="btn btn-info" href="/records/{{ this._id }}/edit">修改</a>
 
           <form action="./records/{{ this._id }}?_method=DELETE" method="POST" onsubmit="return confirm('確定刪除嗎')"
             style="display: inline;" style="display: inline;">
@@ -57,6 +57,6 @@
 
 
   <div class="mt-3">
-    <a class="btn btn-success" href="./records/new">新增支出</a>
+    <a class="btn btn-success" href="/records/new">新增支出</a>
   </div>
 </div>

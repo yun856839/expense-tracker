@@ -3,7 +3,6 @@ const router = express.Router()
 
 const Record = require('../../models/record')
 const Category = require('../../models/category')
-const changeToIcon = require('../../public/javascripts/changeToIcon')
 
 // 新增
 router.get('/new', (req, res) => {
@@ -17,13 +16,9 @@ router.get('/new', (req, res) => {
 router.post('/', (req, res) => {
   // console.log(req.body)
   const { name, date, category, amount } = req.body
-  Record.find()
-    .lean()
-    .then(records => {
-      return Record.create({ name, date, category, amount })
-        .then(() => res.redirect('/'))
-        .catch(err => console.log(err))
-    })
+  return Record.create({ name, date, category, amount })
+    .then(() => res.redirect('/'))
+    .catch(err => console.log(err))
 })
 
 // 編輯

@@ -16,10 +16,10 @@ router.get('/:currentCotegory', (req, res) => {
     })
     .then(records => {
       let totalAmount = 0
-      for (let i in records) {
-        records[i].category = changeToIcon(records[i].category)
-        totalAmount += records[i].amount
-      }
+      records.forEach(record => {
+        record.category = changeToIcon(record.category)
+        totalAmount += record.amount
+      })
       Category.find()
         .lean()
         .sort({ _id: 'asc' })

@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
       //   totalAmount += records[i].amount
       // }
       records.forEach(record => {
+        record.date = record.date.toLocaleDateString()
         record.category = changeToIcon(record.category)
         totalAmount += record.amount
       })

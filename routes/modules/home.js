@@ -13,12 +13,8 @@ router.get('/', (req, res) => {
     .sort({ date: 'desc' })
     .then(records => {
       let totalAmount = 0
-      // for (let i in records) {
-      //   records[i].category = changeToIcon(records[i].category)
-      //   totalAmount += records[i].amount
-      // }
       records.forEach(record => {
-        record.date = record.date.toLocaleDateString()
+        record.date = record.date.toLocaleString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' })
         record.category = changeToIcon(record.category)
         totalAmount += record.amount
       })

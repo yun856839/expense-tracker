@@ -15,9 +15,21 @@
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default">店家*</span>
+          <label for="merchant" class="input-group-text" id="inputGroup-sizing-default">店家*</label>
         </div>
-        <input type="text" class="form-control" placeholder="" name="merchant" value="{{ record.merchant }}"
+        <input type="text" id="merchant" class="form-control" placeholder="" name="merchant"
+          value="{{ record.merchant }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+          required>
+        <div class="invalid-feedback">
+
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label for="name" class="input-group-text" id="inputGroup-sizing-default">名稱*</label>
+        </div>
+        <input type="text" id="name" class="form-control" placeholder="" name="name" value="{{ record.name }}"
           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
         <div class="invalid-feedback">
 
@@ -26,29 +38,18 @@
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default">名稱*</span>
+          <label for="date" class="input-group-text" id="inputGroup-sizing-default">日期*</label>
         </div>
-        <input type="text" class="form-control" placeholder="" name="name" value="{{ record.name }}"
-          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-        <div class="invalid-feedback">
-
-        </div>
-      </div>
-
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default">日期*</span>
-        </div>
-        <input type="date" class="form-control" placeholder="" name="date" value="{{ record.date }}" required
+        <input type="date" id="date" class="form-control" placeholder="" name="date" value="{{ record.date }}" required
           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default">類別*</span>
+          <label for="category" class="input-group-text" id="inputGroup-sizing-default">類別*</label>
         </div>
 
-        <select name="category">
+        <select id="category" name="category">
           {{#each categories}}
           <option value="{{ this.category }}" {{#if (equal this.category ../currentCategory)}}selected{{/if}}>
             {{ this.category }}</option>
@@ -59,10 +60,10 @@
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default">金額*</span>
+          <label for="amount" class="input-group-text" id="inputGroup-sizing-default">金額*</label>
         </div>
-        <input type="number" class="form-control" placeholder="" name="amount" value="{{ record.amount }}" required
-          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <input type="number" id="amount" class="form-control" placeholder="" name="amount" value="{{ record.amount }}"
+          required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
 
       <button class="btn btn-success mb-3" type="submit">送出</button>

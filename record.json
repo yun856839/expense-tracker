@@ -1,0 +1,39 @@
+{
+  "results": [
+    {
+      "name": "午餐",
+      "category": "餐飲食品",
+      "date": "2020-11-02",
+      "amount": 60,
+      "merchant": "麥當勞"
+    },
+    {
+      "name": "晚餐",
+      "category": "餐飲食品",
+      "date": "2020-11-04",
+      "amount": 60,
+      "merchant": "肯德基"
+    },
+    {
+      "name": "捷運",
+      "category": "交通出行",
+      "date": "2020-11-23",
+      "amount": 120,
+      "merchant": "---"
+    },
+    {
+      "name": "電影：驚奇隊長",
+      "category": "休閒娛樂",
+      "date": "2020-11-17",
+      "amount": 220,
+      "merchant": "電影院"
+    },
+    {
+      "name": "租金",
+      "category": "家居物業",
+      "date": "2020-11-23",
+      "amount": 25000,
+      "merchant": "房租"
+    }
+  ]
+}

@@ -30,10 +30,11 @@ const changeToIcon = require('../../public/javascripts/changeToIcon')
 // })
 
 router.get('/', (req, res) => {
+  const userId = req.user._id
   // console.log(req.query)
   const month = req.query.month
   const currentCotegory = req.query.currentCotegory
-  Record.find()
+  Record.find({ userId })
     .lean()
     .sort({ date: 'desc' })
     .then(records => {

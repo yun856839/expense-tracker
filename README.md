@@ -1,5 +1,6 @@
 # 專案畫面
 ![image](https://github.com/yun856839/expense-tracker/blob/master/expense-tracker.jpg)
+![image](https://github.com/yun856839/expense-tracker/blob/master/login.jpg)
 
 # expense-tracker
 * 供使用者記錄支出
@@ -12,7 +13,7 @@
 * 編輯支出的所有類別 (一次只能編輯一筆)
 * 刪除任何一筆支出 (一次只能刪除一筆)
 * 在首頁可以根據支出「類別」、「月份」篩選支出；總金額的計算只會包括被篩選出來的支出總和。
-* 登入功能(email: 'root@example.com', password: '12345678')
+* 登入功能(email: 'root@example.com', password: '12345678')、(email: 'user2@example.com', password: '12345678')
 
 # 環境建置與需求 (prerequisites)
 * Node.js: 13.5.0

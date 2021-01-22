@@ -17,8 +17,8 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-default">店家*</span>
         </div>
-        <input type="text" class="form-control" placeholder="" name="merchant" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-default" required>
+        <input type="text" maxlength="10" class="form-control" placeholder="" name="merchant"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
         <div class="invalid-feedback">
 
         </div>
@@ -28,8 +28,8 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-default">名稱*</span>
         </div>
-        <input type="text" class="form-control" placeholder="" name="name" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-default" required>
+        <input type="text" maxlength="10" class="form-control" placeholder="" name="name"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
         <div class="invalid-feedback">
 
         </div>
@@ -60,7 +60,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-default">金額*</span>
         </div>
-        <input type="number" class="form-control" placeholder="" name="amount" required
+        <input type="number" min="1" max="100000000" class="form-control" placeholder="" name="amount" required
           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
 

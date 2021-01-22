@@ -17,7 +17,7 @@
         <div class="input-group-prepend">
           <label for="merchant" class="input-group-text" id="inputGroup-sizing-default">店家*</label>
         </div>
-        <input type="text" id="merchant" class="form-control" placeholder="" name="merchant"
+        <input type="text" maxlength="10" id="merchant" class="form-control" placeholder="" name="merchant"
           value="{{ record.merchant }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
           required>
         <div class="invalid-feedback">
@@ -29,8 +29,9 @@
         <div class="input-group-prepend">
           <label for="name" class="input-group-text" id="inputGroup-sizing-default">名稱*</label>
         </div>
-        <input type="text" id="name" class="form-control" placeholder="" name="name" value="{{ record.name }}"
-          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+        <input type="text" maxlength="10" id="name" class="form-control" placeholder="" name="name"
+          value="{{ record.name }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+          required>
         <div class="invalid-feedback">
 
         </div>
@@ -62,8 +63,9 @@
         <div class="input-group-prepend">
           <label for="amount" class="input-group-text" id="inputGroup-sizing-default">金額*</label>
         </div>
-        <input type="number" id="amount" class="form-control" placeholder="" name="amount" value="{{ record.amount }}"
-          required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <input type="number" min="1" max="100000000" id="amount" class="form-control" placeholder="" name="amount"
+          value="{{ record.amount }}" required aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default">
       </div>
 
       <button class="btn btn-success mb-3" type="submit">送出</button>

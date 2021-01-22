@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
       let totalAmount = 0
       records.forEach(record => {
         // record.date = record.date.toLocaleString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' })
-        record.date = new Date(record.date).toISOString().slice(0, 10);
+        record.date = new Date(record.date).toISOString().slice(0, 10).replace(/\-/g, '/')
         record.category = changeToIcon(record.category)
         totalAmount += record.amount
       })

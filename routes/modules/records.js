@@ -28,7 +28,8 @@ router.get('/', (req, res) => {
       })
 
       selected.forEach((record, index, records) => {
-        records[index].date = record.date.toLocaleDateString()
+        // records[index].date = record.date.toLocaleDateString()
+        records[index].date = new Date(record.date).toISOString().slice(0, 10)
       })
 
       let totalAmount = 0
@@ -72,7 +73,8 @@ router.get('/:id/edit', (req, res) => {
   return Record.findOne({ _id, userId })
     .lean()
     .then(record => {
-      record.date = record.date.toLocaleString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-')
+      // record.date = record.date.toLocaleString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-')
+      record.date = new Date(record.date).toISOString().slice(0, 10);
       const currentCategory = record.category
       Category.find()
         .lean()

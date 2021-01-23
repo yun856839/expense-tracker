@@ -1,5 +1,5 @@
 # 專案畫面
-![image](https://github.com/yun856839/expense-tracker/blob/master/expense-tracker.jpg)
+![image](https://github.com/yun856839/expense-tracker/blob/master/expense-tracker2.jpg)
 ![image](https://github.com/yun856839/expense-tracker/blob/master/login.jpg)
 
 # expense-tracker

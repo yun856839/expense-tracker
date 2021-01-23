@@ -2,9 +2,22 @@
   <div class="row">
 
     {{> sort}}
+    <div class="btn btn-info ml-3" id="click-me">計算餘額</div>
 
     <div class="col-12 my-3">
-      <h1>總金額 : {{ totalAmount }}</h1>
+      <h3>
+        <label for="income">總收入 : </label>
+        <input class="income" style="border-radius: 25%;outline: none" id="income" type="number" min="1"
+          max="100000000">
+        </h1>
+    </div>
+
+    <div class="col-12 my-3">
+      <h3 class="totalAmount">總金額 : {{ totalAmount }}</h1>
+    </div>
+
+    <div class="col-12 my-3">
+      <h1 class="balance" style="color:red"></h1>
     </div>
   </div>
   <ul class="list-group">
